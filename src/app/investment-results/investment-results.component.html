@@ -1,1 +1,23 @@
-<p>investment-results works!</p>
+@if(!investmentsData){
+
+<p>Please enter some values and press "Calculate".</p>
+}@else {
+
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Interest (Year)</th>
+            <th>Total Interest</th>
+            <th>Invested Capital</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of investmentsData; track item.year) {}
+        <tr>
+
+        </tr>
+    </tbody>
+</table>
+}

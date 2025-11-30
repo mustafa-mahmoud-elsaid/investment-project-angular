@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
-import { InvestmentModel } from './user-input/investment.model';
+import { InvestmentModel } from './investment-results/investment.model';
+import { InvestmentResult } from './investment-results/investment.model';
+import { InvestmentResultsComponent } from './investment-results/investment-results.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [HeaderComponent, UserInputComponent],
+  imports: [HeaderComponent, UserInputComponent, InvestmentResultsComponent],
 })
 export class AppComponent {
-  calculateInvestmentResults(data: InvestmentModel) {
-    const annualData = [];
+  investsData?: Array<InvestmentResult> = undefined;
+  onCalculateInvestmentResults(data: InvestmentModel) {
+    const annualData: Array<InvestmentResult> = [];
 
     const { initialInvestment, expectedReturn, annualInvestment, duration } =
       data;
@@ -34,6 +37,7 @@ export class AppComponent {
       });
     }
     console.log(annualData);
-    return annualData;
+    this.investsData = annualData;
+    // return annualData;
   }
 }

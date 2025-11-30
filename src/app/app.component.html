@@ -1,2 +1,3 @@
 <app-header />
-<app-user-input (submit)="calculateInvestmentResults($event)" />
+<app-user-input (submit)="onCalculateInvestmentResults($event)" />
+<app-investment-results [investmentsData]="investsData" />
