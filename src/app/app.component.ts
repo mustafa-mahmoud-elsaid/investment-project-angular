@@ -12,7 +12,7 @@ import { InvestmentResultsComponent } from './investment-results/investment-resu
   imports: [HeaderComponent, UserInputComponent, InvestmentResultsComponent],
 })
 export class AppComponent {
-  investsData?: Array<InvestmentResult> = undefined;
+  investsData?: Array<InvestmentResult>;
   onCalculateInvestmentResults(data: InvestmentModel) {
     const annualData: Array<InvestmentResult> = [];
 
@@ -36,8 +36,8 @@ export class AppComponent {
         totalAmountInvested: initialInvestment + annualInvestment * year,
       });
     }
-    console.log(annualData);
     this.investsData = annualData;
+    console.log(this.investsData);
     // return annualData;
   }
 }

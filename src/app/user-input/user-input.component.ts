@@ -15,9 +15,9 @@ export class UserInputComponent {
   enteredAnnualInvestment = '0';
   enteredExpectedReturn = '5';
   enteredDuration = '0';
-  @Output() submit = new EventEmitter<InvestmentModel>();
+  @Output() calculate = new EventEmitter<InvestmentModel>();
   onSubmit() {
-    this.submit.emit({
+    this.calculate.emit({
       initialInvestment: +this.enteredInitialInvestment,
       annualInvestment: +this.enteredAnnualInvestment,
       expectedReturn: +this.enteredExpectedReturn,
